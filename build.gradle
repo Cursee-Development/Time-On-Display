@@ -1,0 +1,37 @@
+plugins {
+    // Required for NeoGradle
+    id "org.jetbrains.gradle.plugin.idea-ext" version "1.1.7"
+
+    // Required for Forgix
+    id "io.github.pacifistmc.forgix" version "1.2.9"
+}
+
+forgix {
+    group = "${project.group}" // same as targetting ${group}, just not sure if expandProps occurs before this
+    mergedJarName = "${mod_id}-merged-${minecraft_version}-${project.version}.jar"
+    outputDir = "build/libs"
+
+    custom {
+        projectName = "common"
+        jarLocation = "build/libs/${mod_id}-common-${minecraft_version}-${project.version}.jar"
+    }
+
+    fabric {
+        projectName = "fabric"
+        jarLocation = "build/libs/${mod_id}-fabric-${minecraft_version}-${project.version}.jar"
+    }
+
+//    forge {
+//        projectName = "forge"
+//        jarLocation = "build/libs/${mod_id}-forge-${minecraft_version}-${project.version}.jar"
+//
+//        mixin "${mod_id}.forge.mixins.json"
+//    }
+
+    neoforge {
+        projectName = "neoforge"
+        jarLocation = "build/libs/${mod_id}-neoforge-${minecraft_version}-${project.version}.jar"
+
+        mixin "${mod_id}.neoforge.mixins.json"
+    }
+}
