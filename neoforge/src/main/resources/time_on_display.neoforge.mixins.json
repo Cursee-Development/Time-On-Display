@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.cursee.time_on_display.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [],
+  "client": [
+    "GuiMixinNeoForge"
+  ],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
