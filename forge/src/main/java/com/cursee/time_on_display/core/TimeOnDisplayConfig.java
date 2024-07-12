@@ -23,9 +23,12 @@ public class TimeOnDisplayConfig {
     public static String displayLocation = "upper-left";
     public static String displaySystemTimeIcon = "";
 
+    public static final Map<String, Object> comments = new HashMap<String, Object>();
     public static final Map<String, Object> defaults = new HashMap<String, Object>();
 
     public static void initialize() {
+
+        comments.put("_comment", "displaySystemTimeIcon can be 1 or 2 (in quotes) for alternate icons");
 
         defaults.put("displayEnabled", displayEnabled);
         defaults.put("displayOnlySystemTime", displayOnlySystemTime);
@@ -33,6 +36,8 @@ public class TimeOnDisplayConfig {
         defaults.put("display24Hour", display24Hour);
         defaults.put("displayLocation", displayLocation);
         defaults.put("displaySystemTimeIcon", displaySystemTimeIcon);
+
+        comments.putAll(defaults);
 
         if (!CONFIG_DIRECTORY.isDirectory()) {
             CONFIG_DIRECTORY.mkdir();
@@ -50,7 +55,9 @@ public class TimeOnDisplayConfig {
         if (FILE_NOT_FOUND) {
             try {
                 TomlWriter writer = new TomlWriter();
-                writer.write(defaults, file);
+
+                writer.write(comments, file);
+                // writer.write(defaults, file);
             }
             catch (IOException exception) {
                 Constants.LOG.error("Fatal error occurred while attempting to write " + Constants.MOD_ID + ".toml");
