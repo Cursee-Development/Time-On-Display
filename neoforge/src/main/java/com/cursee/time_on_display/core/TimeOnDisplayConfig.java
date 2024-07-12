@@ -28,7 +28,8 @@ public class TimeOnDisplayConfig {
 
     public static void initialize() {
 
-        comments.put("_comment", "displaySystemTimeIcon can be 1 or 2 (in quotes) for alternate icons");
+        comments.put("_comment1", "displaySystemTimeIcon can be 1 or 2 (in quotes) for alternate icons");
+        comments.put("_comment2", "displayLocation can be lower-left,  upper-left, upper-middle, upper-right, or lower-right (in quotes) for alternate positions");
 
         defaults.put("displayEnabled", displayEnabled);
         defaults.put("displayOnlySystemTime", displayOnlySystemTime);
