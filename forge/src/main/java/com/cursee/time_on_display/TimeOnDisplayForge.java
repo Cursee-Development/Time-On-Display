@@ -60,17 +60,21 @@ public class TimeOnDisplayForge {
     public static class ClientForgeBusEvents {
 
         @SubscribeEvent
-        public static void onKeyRegister(RegisterKeyMappingsEvent event) {
-            event.register(TimeOnDisplayKeyBindForge.TIMEONDISPLAY_KEY);
-        }
-
-        @SubscribeEvent
         public static void onKeyInput(InputEvent.Key event) {
             if (TimeOnDisplayKeyBindForge.TIMEONDISPLAY_KEY.consumeClick()) {
                 if (Minecraft.getInstance().player != null) {
                     displayToggle = !displayToggle;
                 }
             }
+        }
+    }
+
+    @Mod.EventBusSubscriber(modid = Constants.MOD_ID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
+    public static class ModEvents {
+
+        @SubscribeEvent
+        public static void onKeyRegister(RegisterKeyMappingsEvent event) {
+            event.register(TimeOnDisplayKeyBindForge.TIMEONDISPLAY_KEY);
         }
     }
 }

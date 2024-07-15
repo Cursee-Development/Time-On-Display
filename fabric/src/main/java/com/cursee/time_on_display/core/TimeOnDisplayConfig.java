@@ -17,7 +17,7 @@ public class TimeOnDisplayConfig {
     public static final File CONFIG_DIRECTORY = new File(Services.PLATFORM.getGameDirectory() + File.separator + "config");
     public static final String CONFIG_FILEPATH = CONFIG_DIRECTORY + File.separator + Constants.MOD_ID + ".toml";
 
-    public static boolean displayEnabled = false;
+    public static boolean displayEnabled = true;
     public static boolean displayOnlySystemTime = false;
     public static boolean displayClockIcons = true;
     public static boolean display24Hour = false;
